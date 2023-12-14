@@ -22,24 +22,41 @@ function App() {
       id: document.getElementById("id").value,
       descricao: document.getElementById("descricao").value,
     };
-    setAtividades([...atividades, {...atividade}]);
+    setAtividades([...atividades, { ...atividade }]);
   }
 
   return (
     <>
-      <form>
-        <input id="id" type="text" placeholder="id"></input>
-        <input id="descricao" type="text" placeholder="descricao"></input>
-        <button onClick={addAtividade}>+ Atividade</button>
+      <form className="row g-3">
+        <div className="col-md-6">
+          <label for="inputEmail4" className="form-label">
+            Id
+          </label>
+          <input id="id" type="text" className="form-control" />
+        </div>
+        <div className="col-md-6">
+          <label for="inputEmail4" className="form-label">
+            Descrição
+          </label>
+          <input id="descricao" type="text" className="form-control" />
+        </div>
+        <hr />
+        <div class="col-12">
+          <button className="btn btn-outline-secondary" onClick={addAtividade}>
+            + Atividade
+          </button>
+        </div>
       </form>
       <div className="mt-3">
-        <ul className="list-group">
-          {atividades.map((ativ) => (
-            <li key={ativ.id} className="list-group-item">
-              {ativ.id} - {ativ.descricao}
-            </li>
-          ))}
-        </ul>
+        {atividades.map((ativ) => (
+          <div key={ativ.id} className="card mb-2 shadow-sm">
+            <div className="card-body">
+              <p className="card-text">
+                {ativ.id} - {ativ.descricao}
+              </p>
+            </div>
+          </div>
+        ))}
       </div>
     </>
   );

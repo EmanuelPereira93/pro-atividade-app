@@ -35,7 +35,8 @@ export default function AtividadeForm(props) {
         </div>
         <hr />
         <div className="col-12">
-          <button className="btn btn-outline-secondary" onClick={props.addAtividade}>
+          <button className="btn btn-outline-secondary" 
+          onClick={props.addAtividade}>
             + Atividade
           </button>
         </div>
